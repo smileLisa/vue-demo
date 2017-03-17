@@ -4,10 +4,16 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUi from 'element-ui'
+import VueLazyLoad from 'vue-lazyload/vue-lazyload'
 import 'element-ui/lib/theme-default/index.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUi)
+Vue.use(VueLazyLoad,{
+  loading: './static/load.jpg',
+  attempt: 1,
+  listenEvent: ['mousewheel']
+});
 
 /* eslint-disable no-new */
 new Vue({

@@ -6,6 +6,7 @@
       <li v-for="item in navLink"><a href="https://vuejs.org" target="_blank">{{ item.link }}</a></li>
     </ul>
     <router-link to="/Login">login</router-link>
+    <router-link to="/ImgLazy">imgLazyLoad</router-link>
   </div>
 </template>
 
