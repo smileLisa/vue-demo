@@ -2,7 +2,7 @@
   <div class="hello">
     <router-link to="/Login">login</router-link>
     <div class="lazy-wrap">
-       <h3>图片懒加载</h3>
+       <h3>图片懒加载三种形式</h3>
 
     <ul>
       <li  v-for="img in list">
@@ -10,15 +10,10 @@
       </li>
     </ul>
        <ul>
-        <li v-for="img in list">
+        <li v-for="img in list0">
           <div v-lazy:background-image="img" class="bg-box"></div>
         </li>
        </ul>
-     <ul>
-      <li  v-for="img in list">
-        <img v-lazy.container="img">
-      </li>
-    </ul>
     </div>
   </div>
 </template>
@@ -33,15 +28,27 @@ export default {
         './static/3.jpg',
         './static/4.jpg',
         './static/5.jpg',
-        './static/0.jpg',
-        './static/1.jpg',
         './static/6.jpg',
         './static/7.jpg',
         './static/8.png',
         './static/9.png',
         './static/10.png',
-        './static/11.png'
-     ]
+       './static/12.jpg',
+       './static/13.jpg',
+       './static/14.jpg'
+     ],
+      list0: [
+        './static/00.jpg',
+        './static/11.jpg',
+        './static/33.jpg',
+        './static/44.jpg',
+        './static/55.jpg',
+        './static/66.jpg',
+        './static/77.jpg',
+        './static/88.png',
+        './static/99.png'
+      ]
+
     }
   }
 }
