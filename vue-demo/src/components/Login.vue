@@ -1,25 +1,18 @@
 <template>
  <el-row class="content">
+   <el-col :span="12" :offset="6">
+     <el-switch v-model="value1" on-color="#13ce66" off-color="#ff4949"></el-switch>
+   </el-col>
     <el-col :span="12" :offset="6">
       <el-input v-model="name" placeholder="账号" type="text"></el-input>
     </el-col>
-    <el-col :span="12" :offset="6">
-      <el-popover
-            placement="right"
-            title="标题"
-            width="200"
-            trigger="focus" >
-              <el-input v-model="password" placeholder="密码" type="text" Slot="reference"></el-input>
-            </el-popover>
-    </el-col>
+   <el-col :span="12" :offset="6" v-if="value1 === true">
+     <el-input v-model="password" placeholder="密码" type="text"></el-input>
+   </el-col>
+   <el-col :span="12" :offset="6">
+     <el-button type="primary" @click="pop">提交</el-button>
+   </el-col>
 
-
-    <el-col :span="12" :offset="6">
-      <el-input v-model="password_r" placeholder="确认密码" type="text"></el-input>
-    </el-col>
-     <el-col :span="12" :offset="6">
-      <el-button @click="login">注册</el-button>
-     </el-col>
  </el-row>
 </template>
 
@@ -27,6 +20,7 @@
 export default {
   data () {
     return {
+      value1: true,
       name: '',
       password: '',
       password_r: '',
@@ -34,30 +28,12 @@ export default {
       tips: '请输入密码'
     }
   },
-  watch: {
-    password: function(val,oldVal){
-        console.log(val,oldVal)
-    },
-    password_r: function () {
-          if(this.password_r ==''){
-            this.tips="输入密码啊"
-          }
-          else if(this.password_r != this.password)
-          {
-            this.tips="两次密码不一样哦"
-          }
-          else
-            this.tips="对接成功，可以注册了"
-        }
-  },
-   methods: {
-     login() {
-       this.$message({
-                message:  `欢迎${this.name}同学`,
-                type: 'success'
-              })
-     }
-   }
+  methods: {
+      pop () {
+          this.$message('请输入账号');
+          console.log(this.type);
+      }
+  }
 }
 </script>
 
