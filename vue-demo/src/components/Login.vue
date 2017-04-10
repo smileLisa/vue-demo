@@ -28,6 +28,11 @@ export default {
       tips: '请输入密码'
     }
   },
+  watch:{
+      name : function(val,oldVal) {
+          console.log('new: %s,old: %s',val,oldVal);
+      }
+  },
   methods: {
       pop () {
           this.$message('请输入账号');
